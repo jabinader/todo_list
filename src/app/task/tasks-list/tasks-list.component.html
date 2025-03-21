@@ -1,0 +1,30 @@
+<div class="container">
+	<div class="add-task-section">
+		<mat-form-field class="example-form-field" appearance="outline" subscriptSizing="dynamic">
+			<mat-label>Task Name</mat-label>
+			<input matInput type="text" [(ngModel)]="taskName">
+	  	</mat-form-field>
+		<mat-form-field class="example-form-field" appearance="outline" subscriptSizing="dynamic">
+			<mat-label>Assignee</mat-label>
+			<input matInput type="text" [(ngModel)]="assignee">
+	  	</mat-form-field>
+
+		<button mat-raised-button (click)="addTask()">Add Task</button>
+	</div>
+	<table mat-table [dataSource]="dataSource" class="tasks-table">
+		<!-- Task Name Column -->
+		<ng-container matColumnDef="taskName">
+		  <th mat-header-cell *matHeaderCellDef>Task Name</th>
+		  <td mat-cell *matCellDef="let element">{{element.taskName}}</td>
+		</ng-container>
+	  
+		<!-- Assignee Column -->
+		<ng-container matColumnDef="assignee">
+		  <th mat-header-cell *matHeaderCellDef>Assignee</th>
+		  <td mat-cell *matCellDef="let element">{{element.assignee}}</td>
+		</ng-container>
+	  
+		<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+		<tr mat-row *matRowDef="let row; columns: displayedColumns;"  (click)="rowClicked(row.id)"></tr>
+	</table>
+</div>
