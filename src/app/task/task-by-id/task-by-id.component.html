@@ -1,8 +1,26 @@
-<mat-form-field appearance="outline">
-	<mat-label>Task Name</mat-label>
-	<input matInput type="text" [(ngModel)]="taskName">
-</mat-form-field>
-<mat-form-field class="example-form-field" appearance="outline">
-	<mat-label>Assignee</mat-label>
-	<input matInput type="text" [(ngModel)]="assignee">
-</mat-form-field>
+<form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+	
+	<mat-form-field appearance="outline">
+		<mat-label>Task Name</mat-label>
+		<input matInput type="text" formControlName="taskName">
+	</mat-form-field>
+	<mat-form-field class="example-form-field" appearance="outline">
+		<mat-label>Assignee</mat-label>
+		<input matInput type="text" formControlName="assignee">
+	</mat-form-field>
+	<div formArrayName="address">
+		@for (task of taskForm.controls.address.controls; track $index) {
+			<div [formGroupName]="$index">
+				<mat-form-field class="example-form-field" appearance="outline">
+					<mat-label>City</mat-label>
+					<input matInput type="text" formControlName="city">
+				</mat-form-field>
+				<mat-form-field class="example-form-field" appearance="outline">
+					<mat-label>Street</mat-label>
+					<input matInput type="text" formControlName="street">
+				</mat-form-field>
+			</div>
+		}
+	</div>
+	<button mat-raised-button color="primary" type="submit" [disabled]="taskForm.invalid">Submit</button>
+</form>

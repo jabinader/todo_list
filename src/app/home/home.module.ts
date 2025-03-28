@@ -10,7 +10,6 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     HomeRoutingModule,
     SharedModule
-    
   ]
 })
 export class HomeModule { }
