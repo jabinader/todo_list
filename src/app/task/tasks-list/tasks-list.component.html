@@ -1,14 +1,5 @@
 <div class="container">
 	<div class="add-task-section">
-		<mat-form-field class="example-form-field" appearance="outline" subscriptSizing="dynamic">
-			<mat-label>Task Name</mat-label>
-			<input matInput type="text" [(ngModel)]="taskName">
-	  	</mat-form-field>
-		<mat-form-field class="example-form-field" appearance="outline" subscriptSizing="dynamic">
-			<mat-label>Assignee</mat-label>
-			<input matInput type="text" [(ngModel)]="assignee">
-	  	</mat-form-field>
-
 		<button mat-raised-button (click)="addTask()">Add Task</button>
 	</div>
 	<table mat-table [dataSource]="dataSource" class="tasks-table">
