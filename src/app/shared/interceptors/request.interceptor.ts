@@ -10,7 +10,6 @@ export class RequestInterceptor implements HttpInterceptor {
           Authorization: `Bearer test}`,
       }
   });
-  console.log(request);
     return handler.handle(request);
   }
 }

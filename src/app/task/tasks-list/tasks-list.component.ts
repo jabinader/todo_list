@@ -16,7 +16,7 @@ export class TasksListComponent {
 	@ViewChild(MatTable) table: MatTable<Task> | undefined;
 	taskName = '';
 	assignee = '';
-
+	text = 'This is a text';
 	@Input() set tasks(tasks: Task[]) {
 		this.dataSource = JSON.parse(JSON.stringify(tasks)); // This is to avoid mutating the original array
 		this.databaseService.taskNotifier(this.dataSource.length)

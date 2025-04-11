@@ -6,11 +6,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
+import { TextEllipsisPipe } from './pipes/text-ellipsis.pipe';
+import { BackgroundColorDirective } from './directives/background-color.directive';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [TextEllipsisPipe,
+    BackgroundColorDirective
+  ],
   exports: [
     CommonModule,
     MatSidenavModule,
@@ -19,7 +23,9 @@ import { MatButtonModule } from '@angular/material/button';
     MatInputModule,
     MatTableModule,
     MatButtonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TextEllipsisPipe,
+    BackgroundColorDirective
   ]
 })
 export class SharedModule { }
